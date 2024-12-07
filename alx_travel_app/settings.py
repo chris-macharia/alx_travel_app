@@ -15,7 +15,7 @@ import environ
 
 # Initialize environment variables
 env = environ.Env()
-environ.Env.read_env()
+environ.Env.read_env(env_file=".env")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +30,7 @@ SECRET_KEY = '$$4f)87u@-#d1q1wmfx43%*hn$rzyf)t3@j8qb8#+fa@)1p-my'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.33.10', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -89,13 +89,14 @@ WSGI_APPLICATION = 'alx_travel_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('alx_travel_app'),
-        'USER': env('chris'),
-        'PASSWORD': env('D@tabreach2024'),
+        'NAME': env('DB_NAME'),  # Environment variable for database name
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
         'HOST': env('DB_HOST', default='localhost'),
         'PORT': env('DB_PORT', default='3306'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
