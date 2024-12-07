@@ -88,8 +88,6 @@ WSGI_APPLICATION = 'alx_travel_app.wsgi.application'
 
 DATABASES = {
     'default': {
-DATABASES = {
-    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': env('alx_travel_app'),
         'USER': env('chris'),
@@ -98,10 +96,6 @@ DATABASES = {
         'PORT': env('DB_PORT', default='3306'),
     }
 }
-
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
